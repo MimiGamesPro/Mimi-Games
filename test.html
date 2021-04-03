@@ -52,7 +52,7 @@
               $('.navbar').addClass('solid');
           } else {
               $('.navbar').removeClass('solid');
-          }
+          }                                                                                                 
         });
 });
 </script>
@@ -63,9 +63,9 @@
    background: url(https://sonorangirl.github.io/Earth-Quotes/img/google-earth-view-South-Iceland3.jpg) no-repeat center center;
    background-size: cover;
    height: 570px;
-   margin-top: -20px;
+   margin-top: -20px;{}
    
-   .heading {
+   .image .heading {
       color: white;
       text-align: center;
       padding-top: 200px;
@@ -73,9 +73,9 @@
 
    p {
       text-align: center;
-      padding: 20px 60px;
+      padding: 20px 60px;}
       
-       .btn {
+       .p .btn {
          background-color: transparent;
          color: white;
          border: 1px solid white;
@@ -88,7 +88,7 @@
           }
       }
    }
-}
+
 
 .navbar {
   height: 80px;
@@ -100,9 +100,9 @@
 }
 
 
-.navbar-default {
+.navbar-default {}
   
-   .navbar-brand {
+   .navbar-default .navbar-brand {
      margin-top: 10px;
      color: white;
         
@@ -112,11 +112,11 @@
       } 
    }
    
-  .navbar-nav {
+  .navbar-nav {}
     
-    > li {
+    > .navbar-nav li {}
       
-      > a {
+      > .navbar-nav li a {
         color: white;
         margin: 10px 5px 5px 5px;
         
@@ -130,18 +130,16 @@
         text-decoration: none;
       }
 
-    } //end li
+   
 
-    > .active {
+    > .active {}
 
-      > a, > a:hover, > a:focus {
+      > .active a, > a:hover, > a:focus {
         background-color: transparent;
         color: #C57ED3;
       }
 
-    }
-
-  } //end .navbar-nav
+ 
 
   //Collapsed styles
   .navbar-toggle {
@@ -173,36 +171,34 @@
 .navbar.solid {
   background-color: #490D40;
   transition: background-color 1s ease 0s;
-  box-shadow: 0 0 4px grey;
+  box-shadow: 0 0 4px grey;}
 
-    .navbar-brand {
+    .navbar.solid .navbar-brand {
       color: #C57ED3;
       transition: color 1s ease 0s;
     }
 
-    .navbar-nav {
+    .navbar-nav {}
 
-       > li {
+       > .navbar-nav li {}
 
-          > a {
+          > .navbar-nav li a {
             color: #C57ED3;
             transition: color 1s ease 0s;
           }
 
-       } //end li
+    
 
-    } //end .navbar-nav
 
-}
 
 .about {
    background-color: #C57ED3;
    color: #490D40;
    height: 600px;
    text-align: center;
-   margin-top: -20px;
+   margin-top: -20px;}
    
-   h2 {
+   .about h2 {
       padding-top: 220px;
    }
    p {
