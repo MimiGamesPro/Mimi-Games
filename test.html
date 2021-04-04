@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<body>
 <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -76,6 +77,9 @@
    
 </body>
 
+   
+</body>
+
 
 <script>
 	$(document).ready(function() {
@@ -93,56 +97,76 @@
 
 <style>
 	.navbar {
-  height: 80px;
-  background-color: transparent;
-  border: none;
-  color: red;
-  z-index: 100;
-  transition: background-color 1s ease 0s;
+   height: 80px;
+   background-color: transparent;
+   border: none;
+   color: red;
+   z-index: 100;
+   transition: background-color 1s ease 0s;
 }
 
-.navbar-default .navbar-brand {
-  margin-top: 10px;
-  color: white;
-}
-.navbar-default .navbar-brand:hover {
-  color: black;
-  border: 1px solid black;
-}
-.navbar-default .navbar-toggle {
-  border-color: #C57ED3;
-}
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #490D40;
-}
-.navbar-default .navbar-toggle .icon-bar {
-  color: #C57ED3;
-  background-color: #C57ED3;
-}
-.navbar-default .navbar-collapse.collapse.in ul {
-  background-color: #490D40;
-}
+.navbar-default {
+   .navbar-brand {
+      margin-top: 10px;
+      color: white;
+
+      &:hover {
+         color: black;
+         border: 1px solid black;
+      }
+   }
+
+   //Collapsed styles
+   .navbar-toggle {
+      border-color: #c57ed3;
+
+      &:hover,
+      &:focus {
+         background-color: #490d40;
+      }
+      .icon-bar {
+         color: #c57ed3;
+         background-color: #c57ed3;
+      }
+   }
+
+   .navbar-collapse.collapse.in ul {
+      background-color: #490d40;
+   }
+} //end .navbar-default
 
 /* Solid class attached on scroll past first section */
+
 .navbar.solid {
-  background-color: white;
-  transition: background-color 1s ease 0s;
-  box-shadow: 0 0 4px grey;
-}
-.navbar.solid .navbar-brand {
-  color: black;
-  transition: color 1s ease 0s;
-}
-.navbar.solid .navbar-nav > li > a {
-  color: black;
-  transition: color 1s ease 0s;
+   background-color: white;
+   transition: background-color 1s ease 0s;
+   box-shadow: 0 0 4px grey;
+
+   .navbar-brand {
+      color: black;
+      transition: color 1s ease 0s;
+   }
+
+   .navbar-nav {
+      > li {
+         > a {
+            color: black;
+            transition: color 1s ease 0s;
+         }
+      } //end li
+   } //end .navbar-nav
 }
 
 .carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  background-size: cover;
+   height: 100vh;
+   min-height: 350px;
+   background: no-repeat center center scroll;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
 }
+
+
 
 </style>
