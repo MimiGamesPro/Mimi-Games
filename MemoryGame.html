@@ -1,1 +1,205 @@
-MemoryGame.html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="MimiGames" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="dodo logo.ico">
+     <link rel="icon" type="image/png" href="DodoHome.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>Memory Game </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  
+</head>
+
+
+<div class="container">
+<div class="data">
+<div class="score">Score : <span class="scoreBoard">0</span></div>
+<div class="click">Click : <span class="clickBoard">0</span></div>
+</div>
+<div class="grid">
+<div class="popup">
+<button class="playAgain">play Again</button>
+</div>
+</div>
+</div>
+
+<style>
+.grid { 
+width: 40px; 
+height: 40px; 
+display: flex; 
+flex-wrap: wrap; 
+margin: 60px auto; 
+} 
+
+.grid img { 
+margin: 2px; 
+transform-style: preserve-3d; 
+transition: transform 0.5s; 
+} 
+
+.grid img.flip { 
+transform: rotateY(180deg); 
+} 
+
+.popup { 
+background: lightgreen; 
+width: 100px; 
+height: 100px; 
+z-index:20;
+position: fixed; 
+top: 100px;
+left: 100px; 
+display: flex;
+justify-content: center; 
+align-items: center; 
+flex-direction: column;
+}
+
+.data { 
+display: flex; 
+justify-content: space-between; 
+padding: 20px 30px; 
+font-size: 23px; 
+} 
+
+.data span { 
+color: rgb(206, 121, 11);
+font-size: 30px; 
+}
+</style>
+<script>
+let cardArray = [
+{ name: "Mimi", img: "https://moodle.informatica-actief.nl/pluginfile.php/335586/mod_page/content/5/dodo.png", },
+{ name: "Mimi", img: "https://moodle.informatica-actief.nl/pluginfile.php/335586/mod_page/content/5/dodo.png", },
+{ name: "Blue_egg", img: "https://i.imgur.com/aETlfot.png", },
+{ name: "Blue_egg", img: "https://i.imgur.com/aETlfot.png", },
+{ name: "Golden_egg", img: "https://i.imgur.com/OXuozva.png", },
+{ name: "Golden_egg", img: "https://i.imgur.com/OXuozva.png", },
+{ name: "Rainbow_egg", img: "https://i.imgur.com/z3xT2fW.png", },
+{ name: "Rainbow_egg", img: "https://i.imgur.com/z3xT2fW.png", },
+{ name: "Nest", img: "https://i.imgur.com/FybJmlL.png", },
+{ name: "Nest", img: "https://i.imgur.com/FybJmlL.png", },
+{ name: "Hatched_egg", img: "https://i.imgur.com/6MLBoQ7.png", },
+{ name: "Hatched_egg", img: "https://i.imgur.com/6MLBoQ7.png", },
+];
+
+let grid = document.querySelector(".grid"); 
+let scoreBoard = document.querySelector(".scoreBoard"); 
+let popup = document.querySelector(".popup"); 
+let playAgain = document.querySelector(".playAgain"); 
+let clickBoard = document.querySelector(".clickBoard"); 
+let imgs; 
+let cardsId = []; 
+let cardsSelected = []; 
+let cardsWon = 0; 
+let clicks = 0;
+
+document.addEventListener("DOMContentLoaded", function () {
+//define functions 
+
+createBoard(grid, cardArray); 
+arrangeCard();
+playAgain.addEventListener("click", replay); 
+
+//add a click function for images 
+
+imgs = document.querySelectorAll("img");
+Array.from(imgs).forEach(img => 
+img.addEventListener("click", flipCard)
+) 
+});
+
+//createBoard function
+
+function createBoard(grid, array) { 
+popup.style.display = "none"; 
+array.forEach((arr, index) => { 
+let img = document.createElement("img"); 
+img.setAttribute("src", "https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/48/square-icon.png");
+img.setAttribute("data-id", index); 
+grid.appendChild(img); 
+})
+}
+
+// arrangeCard function
+
+function arrangeCard() { 
+cardArray.sort(() => 0.5 - Math.random())
+}
+
+// flip Card function
+
+function flipCard() { 
+let selected = this.dataset.id;
+cardsSelected.push(cardArray[selected].name); 
+cardsId.push(selected); 
+this.classList.add("flip"); 
+this.setAttribute("src", cardArray[selected].img); 
+if (cardsId.length === 2) { 
+setTimeout(checkForMatch, 500);
+} 
+}
+
+// checkForMatch function
+
+function checkForMatch() { 
+let imgs = document.querySelectorAll("img"); 
+let firstCard = cardsId[0];
+let secondCard = cardsId[1];
+if (cardsSelected[0] === cardsSelected[1] && firstCard !== secondCard) { 
+alert("You have found a match!"); 
+cardsWon += 1; 
+scoreBoard.innerHTML = cardsWon; 
+setTimeout(checkWon,500) 
+} else { 
+imgs[firstCard].setAttribute("src", "https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/48/square-icon.png");
+imgs[secondCard].setAttribute("src", "https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/48/square-icon.png"); alert("Wrong, try again"); imgs[firstCard].classList.remove("flip"); imgs[secondCard].classList.remove("flip"); 
+} 
+cardsSelected = []; 
+cardsId = []; 
+clicks += 1; 
+clickBoard.innerHTML = clicks; 
+}
+
+function checkWon() {
+if (cardsWon == cardArray.length / 2) {
+alert("You won!") 
+setTimeout(()=> popup.style.display = "flex" ,300); 
+}
+}
+
+// The replay function
+
+function replay() { 
+arrangeCard(); 
+grid.innerHTML = "";
+createBoard(grid, cardArray);
+cardsWon = 0;
+clicks = 0; 
+clickBoard.innerHTML = 0; 
+scoreBoard.innerHTML = 0; 
+popup.style.display = "none"; 
+}
+</script>
+
+</html>
+
+
+
