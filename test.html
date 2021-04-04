@@ -23,7 +23,7 @@ body {
 }
 
 #navbar.scrolled{
-  background: #b8bbbf !important;
+  background-color: #b8bbbf !important;
   transition: 0.5 ease;
 
 }
@@ -140,8 +140,10 @@ function myFunction() {
   }
 }
 
+</script>
+<script>
 $(window).scroll(function(){
- $('nav').toggleClass('scrolled', $(this).scrollTop() > 1080);
+ $('navbar').toggleClass('scrolled', $(this).scrollTop() > 200);
  });
 </script>
 
