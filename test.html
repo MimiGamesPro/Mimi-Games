@@ -11,20 +11,66 @@
 </head>
 
 <body>
-
-<div class="bg-div">
-    <img class="logo-img" src="dodo logo.png" width="60" height="50" ALT="Logo MimiGames" ALIGN=CENTER>
-    <nav>
-        <ul>
-            <li><a href=file:///C:/Users/combe/Documents/Mimi-Games/index.html#>Home</a></li>
-            <li><a href=file:///C:/Users/combe/Documents/Mimi-Games/OverOns.html>Over Ons</a></li>
-            <li><a href=file:///C:/Users/combe/Documents/Mimi-Games/Geschiedenis.html>Geschiedenis</a></li>
-            <li><a href=file:///C:/Users/combe/Documents/Mimi-Games/MimiGames.html>Mimi Games</a></li>
-            <li><a href=file:///C:/Users/combe/Documents/Mimi-Games/MimiSkills.html>Mimi Skills</a></li>
-            <input type="text" placeholder="Search..">
-        </ul>
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Transparent to Solid Nav</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Another Link</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </nav>
-</div>
+
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">First Slide</h2>
+          <p class="lead">This is a description for the first slide.</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">Second Slide</h2>
+          <p class="lead">This is a description for the second slide.</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">Third Slide</h2>
+          <p class="lead">This is a description for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
 
 
    
@@ -32,143 +78,100 @@
 
 
 <script>
-	window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-50px";
-  }
-}
-
+	$(document).ready(function() {
+        // Transition effect for navbar 
+        $(window).scroll(function() {
+          // checks if window is scrolled more than 500px, adds/removes solid class
+          if($(this).scrollTop() > 700) { 
+              $('.navbar').addClass('solid');
+          } else {
+              $('.navbar').removeClass('solid');
+          }
+        });
+});
 </script>
 
 <style>
-	body{
-    margin: 0;
-    padding: 0;
-    
-    font-family: Arial, Helvetica, sans-serif; 
-     
+	.navbar {
+  height: 80px;
+  background-color: transparent;
+  border: none;
+  color: red;
+  z-index: 100;
+  transition: background-color 1s ease 0s;
 }
 
-video{
-  position: relative;
 
-}
-
-h1{ 
-text-align: center;
-  color: black;
-  width: 1000px;
- }
-
- h3{
-  text-align: center;
-  color: black;
-  width: 1000px;
- }
-
-.container {
-  position: relative;
+.navbar-default {
   
-  height: 100%;
-}
+   .navbar-brand {
+     margin-top: 10px;
+     color: white;
+        
+      &:hover {
+         color: black;
+         border: 1px solid black;
+      } 
+   }
+   
 
-/* Centered text */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  opacity: 0.5;
-}
+  //Collapsed styles
+  .navbar-toggle {
+    border-color: #C57ED3;
 
-
-/* Navigation */
-nav{
-    float: left;
-    color: #317530;
-    overflow:hidden;
-    text-align: center;
-    padding: 11px 14px;
-    background-color: #317530;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-nav ul{
-    margin: 50;
-    padding: 0; 
-}
-
-nav ul li{
-    display: inline-block;
-    list-style-type: none;  
-}
-
-nav > ul > li > a{
-  color: white;
-  text-align: center;
-  padding: 29px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-nav > ul > li > a:hover{
-  background-color: #204f20;
-  color: white;
-}
-
-nav > ul > li > a.active{
-  background-color: #204f20;
-  color: black;
-}
-
-
-nav .search-container {
-  float: right;
-}
-
-nav input[type=text] {
-  padding: 0px;
-  margin-top: 0px;
-  font-size: 17px;
-  border: none;
-}
-
-nav .search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-nav .search-container button:hover {
-  background: #ccc;
-}
-
-  nav input[type=text] {
-    border: 1px solid #ccc;  
+      &:hover, &:focus {
+        background-color: #490D40;
+      }
+      .icon-bar {
+        color: #C57ED3;
+        background-color: #C57ED3;
+      }
   }
 
-.logo-img{
-    float: left;
-    position: relative;
-    margin: 10px 15px 15px 10px;
+  .navbar-collapse.collapse.in ul {
+    background-color: #490D40;
+  }   
+} //end .navbar-default
+
+
+
+/* Solid class attached on scroll past first section */
+
+.navbar.solid {
+  background-color: white;
+  transition: background-color 1s ease 0s;
+  box-shadow: 0 0 4px grey;
+
+    .navbar-brand {
+      color: black;
+      transition: color 1s ease 0s;
+    }
+
+    .navbar-nav {
+
+       > li {
+
+          > a {
+            color: black;
+            transition: color 1s ease 0s;
+          }
+
+       } //end li
+
+    } //end .navbar-nav
+
 }
-.bg-div{
-   background-color: #317530;
-   overflow: hidden;
 
 
-
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
 </style>
 </html>
