@@ -42,6 +42,21 @@ Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, impe
 </div>
 </div>
 
+<script type="">
+  window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
 <style type="text/css">
   body{
     margin: 0;
@@ -51,7 +66,15 @@ Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, impe
      
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
+.sticky + .content {
+  padding-top: 60px;
+}
 h1{ 
 text-align: center;
   color: black;
