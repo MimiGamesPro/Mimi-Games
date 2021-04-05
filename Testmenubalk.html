@@ -182,7 +182,38 @@ ul li:hover .dropdown li{
 h3{
   font-weight: bold;
 }
+ h1{
+  font-size: 70px;
+ }
 
+ a.button{
+ display:inline-block;
+ padding:0.5em 3em;
+ border:0.16em solid #FFFFFF;
+ margin:0 0.3em 0.3em 0;
+ box-sizing: border-box;
+ text-decoration:none;
+ text-transform:uppercase;
+ font-family:'Roboto',sans-serif;
+ font-weight:400;
+ color:#FFFFFF;
+ text-align:center;
+ transition: all 0.15s;
+}
+a.button2:hover{
+ color:#DDDDDD;
+ border-color:#DDDDDD;
+}
+a.button2:active{
+ color:#BBBBBB;
+ border-color:#BBBBBB;
+}
+@media all and (max-width:30em){
+ a.button2{
+  display:block;
+  margin:0.4em auto;
+ }
+}
 
 </style>
 
@@ -233,7 +264,9 @@ h3{
 
 <div class="image">
    <h1 class="heading">Kan jij Mimi redden?</h1>
-   <p><button class="btn btn-large">Mimi Games</button></p>
+   <p>
+    <a href="file:///C:/Users/combe/Documents/Mimi-Games/MimiMaze.html" class="button">Mimi Game</a>
+  </p>
 </div>
 <div class="about">
    <h2>Over ons</h2>
