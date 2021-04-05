@@ -59,6 +59,9 @@
 .navbar-default .navbar-brand {
   margin-top: 10px;
   color: white;
+  border: 1px solid #b8bbbf;
+  border-radius: 30px;
+  background-color: #b8bbbf;
 }
 .navbar-default .navbar-brand:hover {
   color: white;
@@ -67,6 +70,9 @@
 .navbar-default .navbar-nav > li > a {
   color: white;
   margin: 10px 5px 5px 5px;
+  border: 1px solid #b8bbbf;
+  border-radius: 30px;
+  background-color: #b8bbbf;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
   color: white;
@@ -111,6 +117,49 @@
 .navbar.solid .navbar-nav > li > a {
   color: white;
   transition: color 1s ease 0s;
+}
+
+.dropdown{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.dropdown li {
+  display:inline-block
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  font-size: 14px;
+
+}
+
+.dropdown li a{
+  text-decoration: none;
+  margin-top: 10px;
+  text-align: center;
+  padding: 2px 2px 2px 2px;
+  color: white;
+  display: block;
+  border: 1px solid #b8bbbf;
+  border-radius: 30px;
+  background-color: #b8bbbf;
+}
+
+.dropdown li a:hover{
+  background-color: transparent;
+  border:  1px solid white;
+
+}
+
+ul li .dropdown li{
+  display: none;
+
+}
+
+ul li:hover .dropdown li{
+  display: block;
 }
 
 /*color text area*/
@@ -198,7 +247,7 @@ video{
 
 <body translate="no" >
   <body>
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" id= "myNavbar">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -212,8 +261,14 @@ video{
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="file:///C:/Users/combe/Documents/Mimi-Games/Geschiedenis.html">Geschiedenis</a></li>
-            <li><a href="file:///C:/Users/combe/Documents/Mimi-Games/MimiGames.html">Mimi Games</a></li>
+            <li><a href="#">MimiGames</a>
+                 <ul class="dropdown">
+                 <li><a href="file:///C:/Users/combe/Documents/Mimi-Games/MimiMaze.html">Mimi Maze</a></li>
+                 <li><a href="file:///C:/Users/combe/Documents/Mimi-Games/MemoryGame.html">Memory Game</a></li>
+                 </ul>
+            </li>
             <li><a href="file:///C:/Users/combe/Documents/Mimi-Games/MimiSkills.html">Mimi Skills</a></li>
+            
           </ul>
         </div><!--/.nav-collapse -->
       </div>
