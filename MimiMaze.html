@@ -20,6 +20,15 @@
   
 </head>
 <style>
+
+.image {
+  background-color: white;
+  background: url("jungle.jpg") no-repeat center fixed;
+  background-size: cover;
+  height: 100%;
+  margin-top: -20px;
+}
+
 canvas {
     border:1px solid lightblue;
     background-color: white;
@@ -175,12 +184,14 @@ ul li:hover .dropdown li{
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
+<div class="image">
 <br>
 <button class="upbutton" onmouseup="accelerate(0.00)" onmousedown="accelerate(-0.1)">UP</button>
 <button class="downbutton" onmouseup="accelerate(-0.00)" 
 onmousedown="accelerate(0.1)">DOWN</button>
+</div>
 </body>
-</html>
 
 
 
@@ -338,3 +349,4 @@ $(document).ready(function () {
 });
 </script>
 
+</html>
